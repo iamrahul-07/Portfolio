@@ -9,8 +9,8 @@ const projectsData = [
     logo: <FaReact className="text-cyan-500 text-3xl sm:text-4xl" />,
     description: "A personal portfolio showcasing my skills and projects with a clean, modern design.",
     techIcons: [<FaReact className="text-cyan-500" />, <SiTailwindcss className="text-teal-500" />],
-    github: "#",
-    live: "#",
+    github: "https://github.com/iamrahul-07/Portfolio.git",
+    live: "rahul-vishwakarma-portfolio.netlify.app",
   },
   {
     name: "Food Delivery",
