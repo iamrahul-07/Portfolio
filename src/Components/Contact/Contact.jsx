@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import contactSvg from "../../assets/contact.svg";
 import emailjs from "emailjs-com";
+import { useTheme } from "../../Context/ThemeContext";
 
 const Contact = () => {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
@@ -38,19 +39,24 @@ const Contact = () => {
       .finally(() => setIsSending(false));
   };
 
+  const { darkMode, themeToggle } = useTheme();
+
   return (
     <section
       id="contact"
-      className="relative min-h-screen flex flex-col justify-center bg-gradient-to-r from-pink-50 to-purple-100 py-12 sm:py-16 overflow-hidden"
+      className="relative min-h-screen flex flex-col justify-center 
+                 bg-gradient-to-r from-pink-50 to-purple-100 
+                 dark:from-gray-900 dark:to-gray-800 
+                 py-12 sm:py-16 overflow-hidden transition-colors duration-300"
     >
       {/* Animated background circles */}
       <motion.div
-        className="absolute top-10 left-10 w-32 sm:w-40 h-32 sm:h-40 bg-purple-200 rounded-full opacity-30 blur-3xl"
+        className="absolute top-10 left-10 w-32 sm:w-40 h-32 sm:h-40 bg-purple-200 dark:bg-purple-500 rounded-full opacity-30 blur-3xl"
         animate={{ y: [0, 20, 0] }}
         transition={{ duration: 6, repeat: Infinity }}
       />
       <motion.div
-        className="absolute bottom-20 right-10 sm:right-20 w-44 sm:w-60 h-44 sm:h-60 bg-pink-200 rounded-full opacity-20 blur-3xl"
+        className="absolute bottom-20 right-10 sm:right-20 w-44 sm:w-60 h-44 sm:h-60 bg-pink-200 dark:bg-pink-500 rounded-full opacity-20 blur-3xl"
         animate={{ y: [0, -20, 0] }}
         transition={{ duration: 8, repeat: Infinity }}
       />
@@ -64,10 +70,10 @@ const Contact = () => {
           viewport={{ once: true }}
           transition={{ duration: 1 }}
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-800 mb-4 sm:mb-6">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-800 dark:text-gray-100 mb-4 sm:mb-6">
             Get in Touch
           </h2>
-          <p className="text-base sm:text-lg text-gray-700 leading-relaxed mb-6 px-2 sm:px-0">
+          <p className="text-base sm:text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-6 px-2 sm:px-0">
             I’d love to hear from you! Drop a message and I will get back to you soon.
           </p>
 
@@ -80,7 +86,9 @@ const Contact = () => {
               placeholder="Your Name"
               onChange={handleChange}
               required
-              className="w-full p-3 sm:p-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-300 text-sm sm:text-base"
+              className="w-full p-3 sm:p-4 border rounded-lg focus:outline-none focus:ring-2 
+                         focus:ring-purple-300 text-sm sm:text-base
+                         bg-white dark:bg-gray-800 dark:border-gray-700 dark:text-gray-200 dark:placeholder-gray-400"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -95,7 +103,9 @@ const Contact = () => {
               placeholder="Your Email"
               onChange={handleChange}
               required
-              className="w-full p-3 sm:p-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-300 text-sm sm:text-base"
+              className="w-full p-3 sm:p-4 border rounded-lg focus:outline-none focus:ring-2 
+                         focus:ring-purple-300 text-sm sm:text-base
+                         bg-white dark:bg-gray-800 dark:border-gray-700 dark:text-gray-200 dark:placeholder-gray-400"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -110,7 +120,9 @@ const Contact = () => {
               rows="4"
               onChange={handleChange}
               required
-              className="w-full p-3 sm:p-4 border rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-300 text-sm sm:text-base"
+              className="w-full p-3 sm:p-4 border rounded-lg focus:outline-none focus:ring-2 
+                         focus:ring-purple-300 text-sm sm:text-base
+                         bg-white dark:bg-gray-800 dark:border-gray-700 dark:text-gray-200 dark:placeholder-gray-400"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -152,7 +164,7 @@ const Contact = () => {
       </div>
 
       {/* Footer */}
-      <div className="absolute bottom-3 sm:bottom-5 left-0 w-full text-center text-base sm:text-xl font-bold text-gray-600 px-2">
+      <div className="absolute bottom-3 sm:bottom-5 left-0 w-full text-center text-base sm:text-xl font-bold text-gray-600 dark:text-gray-400 px-2">
         Made with <span className="text-red-500">❤️</span> by Rahul Vishwakarma
       </div>
     </section>
