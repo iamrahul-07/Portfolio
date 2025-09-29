@@ -8,7 +8,7 @@ const About = () => {
     const userConfirmed = window.confirm("Do you want to download the resume?");
     if (userConfirmed) {
       const link = document.createElement("a");
-      link.href = "/RAHUL_RESUME (1).pdf"; // ensure this is in the public folder
+      link.href = "/RAHUL_RESUME.pdf"; // ensure this is in the public folder
       link.download = "Rahul_Vishwakarma_Resume.pdf";
       document.body.appendChild(link);
       link.click();
